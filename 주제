@@ -1,0 +1,3 @@
+출처: BIS (국제결제은행) 중앙은행 정책금리
+https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBPOL/1.0/D.KR+US?startPeriod=1990-01-01&endPeriod=2026-06-30&format=csv
+고른이유: 40여 개국의 기준금리를 일·월 단위로 받을 수 있어요. 한국은 콜금리 목표에서 기준금리로 바뀐 내역이 메모로 같이 붙어 와요. 주소의 M.KR을 D.US처럼 바꾸면 일 단위나 다른 나라가 나와요. JSON으로 받으려면 format=jsondata를 쓰면 돼요(이 형식은 직접 받아 보지는 않았어요).

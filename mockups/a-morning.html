@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>출근길 감 테스트 — A 조간 1면</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* A. 조간 1면 — 누런 종이, 명조 제호, 줄로 나눈 목차 */
+:root {
+  --paper: #f4f0e6;
+  --ink: #1d1b18;
+  --sub: #6b655b;
+  --rule: #cfc7b6;
+  --red: #a8322a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { background: var(--paper); color: var(--ink); min-height: 100dvh; }
+body {
+  font-family: Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  word-break: keep-all; letter-spacing: -0.01em; line-height: 1.55;
+}
+.page {
+  max-width: 430px; min-height: 100dvh; margin: 0 auto;
+  padding: 20px 20px calc(24px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column;
+}
+
+/* 제호 */
+.dateline {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--sub); padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+h1 {
+  font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-weight: 900;
+  font-size: 44px; line-height: 1.15; letter-spacing: -0.04em;
+  text-align: center; padding: 18px 0 14px;
+}
+.double { height: 5px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.deck {
+  font-family: "Noto Serif KR", serif; font-weight: 500;
+  font-size: 17px; text-align: center; padding: 14px 0 6px;
+}
+.deck em { font-style: normal; color: var(--red); font-weight: 700; }
+
+/* 목차 */
+.kicker {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--red);
+  margin: 22px 0 4px;
+}
+.kicker::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.topics { list-style: none; flex: 1; display: flex; flex-direction: column; }
+.topics li { flex: 1; display: flex; }  /* 다섯 줄이 화면 높이에 맞게 고르게 펴진다 */
+.topics li + li { border-top: 1px solid var(--rule); }
+.topic {
+  width: 100%; background: none; border: 0; color: inherit; font: inherit; text-align: left;
+  display: grid; grid-template-columns: 36px 1fr auto; gap: 4px 12px; align-items: center;
+  padding: 16px 2px; cursor: pointer;
+}
+.topic .no {
+  grid-row: span 2; align-self: start;
+  font-family: "Noto Serif KR", serif; font-weight: 900; font-size: 26px; color: var(--red);
+  line-height: 1.1;
+}
+.topic .title { font-family: "Noto Serif KR", serif; font-weight: 700; font-size: 19px; line-height: 1.3; }
+.topic .title span { margin-right: 6px; }
+.topic .blurb { grid-column: 2; font-size: 13.5px; color: var(--sub); }
+.topic .go { grid-row: 1 / span 2; grid-column: 3; font-size: 18px; color: var(--sub); }
+.topic:active { background: rgba(0,0,0,.04); }
+.topic:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.foot {
+  font-size: 12px; color: var(--sub); text-align: center;
+  border-top: 1px solid var(--ink); padding-top: 10px; margin-top: 12px;
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <div class="dateline"><span>2026년 10월 28일 수요일</span><span>제1호 · 오늘 5꼭지</span></div>
+    <h1>출근길<br>감 테스트</h1>
+    <div class="double"></div>
+    <p class="deck">출근길 숫자, 당신의 감은 <em>몇 점?</em></p>
+  </header>
+
+  <p class="kicker">오늘의 지면</p>
+  <ol class="topics">
+    <li><button class="topic"><span class="no">1</span><span class="title"><span>🚇</span>지하철은 몇 분이나</span><span class="blurb">아침 8시, 노선별 출근 시간</span><span class="go">›</span></button></li>
+    <li><button class="topic"><span class="no">2</span><span class="title"><span>☕</span>아메리카노 한 잔</span><span class="blurb">커피값은 10년 사이 얼마나 올랐나</span><span class="go">›</span></button></li>
+    <li><button class="topic"><span class="no">3</span><span class="title"><span>🌧️</span>출근길 날씨</span><span class="blurb">아침에 우산을 챙겨야 했던 날</span><span class="go">›</span></button></li>
+    <li><button class="topic"><span class="no">4</span><span class="title"><span>🚌</span>버스냐 지하철이냐</span><span class="blurb">수단별 평균 통근 시간</span><span class="go">›</span></button></li>
+    <li><button class="topic"><span class="no">5</span><span class="title"><span>📱</span>손에서 못 놓는 폰</span><span class="blurb">하루 스마트폰 사용 시간</span><span class="go">›</span></button></li>
+  </ol>
+
+  <p class="foot">주제당 5문항 · 1분이면 끝납니다</p>
+</main>
+</body>
+</html>
